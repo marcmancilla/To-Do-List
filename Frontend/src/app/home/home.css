@@ -86,8 +86,8 @@ h1 {
 .area-tareas {
     position: relative;
     margin-top: -30px;
-    height: 85.7%;
-    
+    height: 84%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tarea1 {
@@ -101,11 +101,32 @@ h1 {
 
 .contenido-tarea {
     margin: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
+    height: 120px;
 }
 
 .tarea-eliminar {
     position: relative;
     margin-left: 50px;
+    border-radius: 50px;
+    height: 30px;
+}
+
+.tarea-eliminar:hover {
+    background-color: rgba(0, 0, 0, 0.262);
+}
+
+.tarea-completada {
+    position: relative;
+    margin-left: 180px;
+    border-radius: 50px;
+    height: 30px;
+}
+
+
+.tarea-completada:hover {
+    background-color: rgba(0, 0, 0, 0.262);
 }
 
 

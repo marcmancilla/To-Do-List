@@ -9,5 +9,14 @@ import { RouterLink } from "@angular/router";
   styleUrl: './home.css',
 })
 export class Home {
-
+  tareas: any[] = [
+    {
+      titulo: "Mi primera tarea",
+      texto: "Texto de prueba primera tarea"
+    },
+    {
+      titulo: "Segunda tarea",
+      texto: "Texto segunda tarea"
+    }
+  ];
 }

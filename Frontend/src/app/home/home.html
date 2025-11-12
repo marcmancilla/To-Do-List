@@ -19,14 +19,16 @@
 
 
     <div class="area-tareas">
-        <div class="tarea1">
+        @for (tarea of tareas; track tarea.titulo) {
+        <div class="tarea-card">
             <div class="contenido-tarea">
-                <h3 class="tarea-titulo">Mi primera tarea</h3>
-                <p class="tarea-descripcion">Esta es la descripcion de mi primera tarea</p>
+                <h3 class="tarea-titulo">{{tarea.titulo}}</h3>
+                <p class="tarea-descripcion">{{tarea.texto}}</p>
             </div>
             <button class="tarea-eliminar">🗑️</button>
             <button class="tarea-completada">Completada</button>
         </div>
+    }
     </div>
 </div>
 
