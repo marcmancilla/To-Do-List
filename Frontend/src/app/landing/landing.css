@@ -24,6 +24,9 @@ input{
 }
 
 input:hover{
+    margin-top: -5px;
+    width: 160px;
+    height: 60px;
     background-color: white;;
 }
 
