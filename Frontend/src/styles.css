@@ -2,15 +2,13 @@ html, body {
   background-image: url('/fond.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   height: 100%;
   margin: 0px;
-  position: relative;
   min-height: 100vh;
 }
 
 footer {
-  position: absolute;
+  flex: 1;
   bottom: 0;
   width: 100%;
   text-align: center;

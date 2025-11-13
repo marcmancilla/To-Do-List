@@ -1,8 +1,11 @@
+.home-container {
+  display: flex;
+  min-height: 100vh;
+}
+
 .lateralNav {
-    position: absolute;
-    top: 0;
-    height: 100%;
     width: 180px;
+    margin-bottom: -5%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.59);
 }
@@ -35,12 +38,13 @@
     border: 0;
 }
 
-.title{
-    position: absolute;
-    left: 180px;
-    right: 0%;
-    top: 0%;
-    
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{   
     text-align: center;
     color: black;
     font-weight: bold;
@@ -50,14 +54,16 @@
 
 h1 {
     font-size: 50px;
+    margin: 10;
 }
 
 .content-area {
-    position: absolute;
+    flex: 1;
     left: 180px;
     top: 133px;
     right: 0;
     bottom: 0%;
+    flex-direction: column;
 }
 
 .filtros{
@@ -84,13 +90,15 @@ h1 {
 }
 
 .area-tareas {
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     margin-top: -30px;
+    margin-left: 80px;
     height: 84%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.tarea1 {
+.tarea-card {
     border: solid 2px, black;
     border-radius: 50px;
     width: 400px;
