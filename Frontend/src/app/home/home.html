@@ -24,12 +24,29 @@
             <div class="area-tareas">
                 @for (tarea of tareasFiltradas; track tarea.titulo) {
                 <div class="tarea-card">
+
                     <div class="contenido-tarea">
-                        <h3 class="tarea-titulo">{{tarea.titulo}}</h3>
-                        <p class="tarea-descripcion">{{tarea.texto}}</p>
+                        <div class="contenido-tarea">
+                            @if (!tarea.editando) {
+                                <h3 class="tarea-titulo">{{tarea.titulo}}</h3>
+                                <p class="tarea-descripcion">{{tarea.texto}}</p>
+                            } @else {
+                                <input [(ngModel)]="tarea.titulo" placeholder="Título" />
+                                <textarea [(ngModel)]="tarea.texto" placeholder="Descripción"></textarea>
+                            }
+                        </div>
                     </div>
-                    <button class="tarea-eliminar" (click)="eliminarTarea(tarea)">🗑️</button>
-                    <button class="tarea-completada" (click)="marcarCompletada(tarea)">{{ tarea.estado === 'completada' ? 'Completada' : 'No completada' }}</button>
+
+
+
+                    <div class="botones">
+                        <button class="tarea-eliminar" (click)="eliminarTarea(tarea)">🗑️</button>
+                        <button class="tarea-completada" (click)="marcarCompletada(tarea)">{{ tarea.estado ===
+                            'completada' ? 'Completada' : 'No completada' }}</button>
+                        <button class="tarea-editar" (click)="editarTarea(tarea)">{{ tarea.editando ? 'Guardar'
+                            : 'Editar tarea'}}</button>
+                    </div>
+
                 </div>
                 }
             </div>

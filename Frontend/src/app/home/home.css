@@ -102,38 +102,64 @@ h1 {
     border: solid 2px, black;
     border-radius: 50px;
     width: 400px;
-    height: 200px;
+    height: 220px;
     margin: 50px;
     background-color: rgba(255, 255, 255, 0.632);
 }
 
 .contenido-tarea {
-    margin: 20px;
     margin-left: 50px;
     margin-top: 20px;
     height: 120px;
 }
 
+
+.botones {
+    position: absolute;
+    height: 80px;
+    width: 400px;
+}
+
 .tarea-eliminar {
-    position: relative;
-    margin-left: 50px;
+    position: absolute;
+    left: 50px;
+    top: 40px;
     border-radius: 50px;
     height: 30px;
 }
+
+.tarea-completada {
+    position: absolute;
+    left: 150px;
+    top: 40px;
+    border-radius: 50px;
+    height: 30px;
+}
+
+.tarea-editar {
+    position: absolute;
+    left: 280px;
+    top: 40px;
+    border-radius: 50px;
+    height: 30px;
+}
+
 
 .tarea-eliminar:hover {
     background-color: rgba(0, 0, 0, 0.262);
 }
 
-.tarea-completada {
-    position: relative;
-    margin-left: 180px;
-    border-radius: 50px;
-    height: 30px;
-}
+
 
 
 .tarea-completada:hover {
+    background-color: rgba(0, 0, 0, 0.262);
+}
+
+
+
+
+.tarea-editar:hover {
     background-color: rgba(0, 0, 0, 0.262);
 }
 
