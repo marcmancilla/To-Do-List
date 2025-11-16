@@ -1,16 +1,19 @@
 .home-container {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
 .lateralNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: 180px;
-    margin-bottom: -5%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.59);
 }
 
-.lateralNav ul{
+.lateralNav ul {
     list-style: none;
     padding: 0%;
     margin: -10px;
@@ -22,7 +25,7 @@
     margin-top: 50px;
 }
 
-.lateralNav input{
+.lateralNav input {
     position: relative;
     margin: 10px;
     width: 100%;
@@ -39,12 +42,13 @@
 }
 
 .main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 180px;
 }
 
-.title{   
+.title {
     text-align: center;
     color: black;
     font-weight: bold;
@@ -66,13 +70,13 @@ h1 {
     flex-direction: column;
 }
 
-.filtros{
+.filtros {
     position: relative;
     top: 20px;
     text-align: center;
 }
 
-.filtros button{
+.filtros button {
     width: 100px;
     height: 30px;
     margin: 30px;
@@ -82,7 +86,7 @@ h1 {
     background-color: rgba(255, 255, 255, 0.605);
 }
 
-.filtros button:hover{
+.filtros button:hover {
     background-color: white;
     width: 110px;
     height: 40px;
@@ -112,7 +116,6 @@ h1 {
     margin-top: 20px;
     height: 120px;
 }
-
 
 .botones {
     position: absolute;
@@ -163,7 +166,37 @@ h1 {
     background-color: rgba(0, 0, 0, 0.262);
 }
 
+.tarea-card-editar {
+    position: fixed;
+    border: solid 2px, black;
+    border-radius: 50px;
+    width: 600px;
+    height: 420px;
+    margin-left: 300px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
 
+.tarea-titulo-editar {
+    text-align: center;
+    margin-left: 70px;
+    border-radius: 50px;
+    height: 50px;
+    width: 350px;
+    background-color: rgb(233, 231, 231);
+}
 
+.tarea-descripcion-editar {
+    margin-top: 50px;
+    border-radius: 10px;
+    height: 200px;
+    width: 500px;
+    background-color: rgb(233, 231, 231);
+}
 
-
+.botones-editar {
+    position: relative;
+    margin-top: 170px;
+    height: 80px;
+    width: 400px;
+}

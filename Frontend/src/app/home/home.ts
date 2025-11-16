@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { Tareas } from '../servicios/tareaService';
 
 
 @Component({
@@ -11,46 +12,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.css',
 })
 export class Home {
-  tareas: any[] = [
-    {
-      titulo: "Mi primera tarea",
-      texto: "Texto de prueba primera tarea",
-      estado: "no-completada",
-      editando: false
-    },
-    {
-      titulo: "Segunda tarea",
-      texto: "Texto segunda tarea",
-      estado: "no-completada",
-      editando: false
-    },
-    {
-      titulo: "Tercera tarea",
-      texto: "Texto tercera tarea",
-      estado: "completada",
-      editando: false
-    },
-    {
-      titulo: "Tercera tarea",
-      texto: "Texto tercera tarea",
-      estado: "no-completada",
-      editando: false
-    },
-    {
-      titulo: "Tercera tarea",
-      texto: "Texto tercera tarea",
-      estado: "completada",
-      editando: false
-    }
-    ,
-    {
-      titulo: "Tercera tarea",
-      texto: "Texto tercera tarea",
-      estado: "eliminada",
-      editando: false
-    }
-  ];
+  
+  constructor(private tareaService: Tareas){};
 
+  get tareas(){
+    return this.tareaService.getTareas();
+  } 
 
   filtro: string = "todas";
 
@@ -62,6 +29,7 @@ export class Home {
     }
   }
 
+
   get tareasFiltradas() {
     return this.tareas.filter(
       t => this.filtro === 'todas' || t.estado === this.filtro
@@ -69,18 +37,17 @@ export class Home {
   }
 
 
-  eliminarTarea(tarea: any) {
-    this.tareas = this.tareas.filter(t => t !== tarea);
-  }
-
-
   editarTarea(tarea: any) {
-    if (tarea.editando == false){
+    if (tarea.editando == false) {
       tarea.editando = true;
     } else {
       tarea.editando = false;
     }
-    
+
+  }
+
+  eliminarTarea(tarea: any){
+    return this.tareaService.eliminarTarea(tarea);
   }
 
 }

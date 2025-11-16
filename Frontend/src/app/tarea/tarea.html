@@ -1,0 +1,28 @@
+<div class="home-container">
+
+    <nav class="lateralNav">
+        <img src="/favicon.ico" alt="">
+        <ul>
+            <li><input type="button" value="Mis tareas" routerLink="/home"></li>
+            <li><input type="button" value="Crear tarea" routerLink="/tarea"></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="title">
+            <h1>Crear nueva tarea</h1>
+        </div>
+
+        <div class="content-area">
+            <div class="create-area">
+                <div class="text-area">
+                    <input [(ngModel)]="tarea.titulo" placeholder="Título" class="tarea-titulo" />
+                    <textarea [(ngModel)]="tarea.texto" placeholder="Descripción" class="tarea-descripcion"></textarea>
+                </div>
+                <div class="botones-area">
+                    <button class="guardar-btn" (click)="crearTarea()">Crear tarea</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
