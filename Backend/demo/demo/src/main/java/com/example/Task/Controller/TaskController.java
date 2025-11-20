@@ -24,7 +24,7 @@ public class TaskController {
         return taskService.obtenerTareas();
     }
 
-    @GetMapping("/api/tasks{id}")
+    @GetMapping("/api/tasks/{id}")
     public TaskModel obtenerTareaId(@PathVariable Long id){
         return taskService.obtenerTarea(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarea no encontrada"));
@@ -35,7 +35,7 @@ public class TaskController {
         return taskService.guardarTarea(tarea);
     }
 
-    @DeleteMapping("/api/tasks{id}")
+    @DeleteMapping("/api/tasks/{id}")
     public void eliminarTarea(@PathVariable Long id){
         taskService.eliminarTarea(id);
     }

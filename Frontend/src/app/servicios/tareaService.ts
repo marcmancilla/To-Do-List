@@ -1,36 +1,47 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, Signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+export interface Tarea {
+  id?: number;
+  titulo: string;
+  texto: string;
+  estado: string;
+  editando: boolean;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class Tareas {
+  private apiUrl = 'http://localhost:8080/api/tasks';
+  private _tareas = signal<Tarea[]>([]);
 
-
-  tareas: any[] = [{
-    titulo: "Mi primera tarea",
-    texto: "Texto de prueba primera tarea",
-    estado: "no-completada",
-    editando: false
-  },
-  {
-    titulo: "Segunda tarea",
-    texto: "Texto segunda tarea",
-    estado: "no-completada",
-    editando: false
-  }
-  ];
-
-
-  getTareas() {
-    return this.tareas;
+  constructor(private http: HttpClient) {
+    this.cargarTareas();
   }
 
-  crearTarea(tarea: any) {
-    this.tareas.push({ ...tarea });
-    alert("Tarea creada con éxito")
+  get tareas(): Signal<Tarea[]> {
+    return this._tareas;
   }
 
-  eliminarTarea(tarea: any) {
-    this.tareas = this.tareas.filter(t => t !== tarea);
+  cargarTareas() {
+    this.http.get<Tarea[]>(this.apiUrl)
+      .subscribe(t => this._tareas.set(t));
+  }
+
+  crearTarea(tarea: Tarea) {
+    this.http.post<Tarea>(this.apiUrl, tarea).subscribe(nuevaTarea => {
+      this._tareas.update(tareas => [...tareas, nuevaTarea]);
+    });
+  }
+
+  eliminarTarea(tarea: Tarea) {
+    if (!tarea.id) return;
+    this.http.delete(`${this.apiUrl}/${tarea.id}`).subscribe(() => {
+      this._tareas.update(tareas => tareas.filter(t => t.id !== tarea.id));
+    });
   }
 }
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { Tareas } from '../servicios/tareaService';
+import { Tarea } from '../tarea/tarea';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class Home {
   constructor(private tareaService: Tareas){};
 
   get tareas(){
-    return this.tareaService.getTareas();
+    return this.tareaService.tareas();
   } 
 
   filtro: string = "todas";
@@ -32,7 +33,7 @@ export class Home {
 
   get tareasFiltradas() {
     return this.tareas.filter(
-      t => this.filtro === 'todas' || t.estado === this.filtro
+      t=> this.filtro === 'todas' || t.estado === this.filtro
     );
   }
 
